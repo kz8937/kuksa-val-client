@@ -1,8 +1,12 @@
-cmake_minimum_required(VERSION 3.13.4 FATAL_ERROR)
-project(KUKSA-VAL-CLIENT)
+cmake_minimum_required(VERSION 3.13.4)
+if(${CMAKE_VERSION} VERSION_LESS 3.13.4)
+    cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
+endif()
+project(KUKSA-VAL-CLIENT
+        VERSION 1.0
+        DESCRIPTION "C++ Client for Kuksaval."
+        LANGUAGE CXX)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-target_link_directories(${PROJECT_NAME} include/)
-add_executable(${PROJECT_NAME} src/main.cpp)
